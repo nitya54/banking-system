@@ -1,0 +1,84 @@
+body{
+    background-color: #685d15;
+}
+
+#logo{
+    color: white;
+    font-size: 33px;
+}
+
+#logo:hover{
+    font-size: 34px;
+}
+
+.banner-heading{
+    display: inline-block;
+    margin-top: 10rem;
+    text-align: center;
+    color: whitesmoke;
+
+}
+
+#viewcustomer{
+    font-size: 20px;
+    padding: 17px 24px;
+    outline: none;
+    border: none;
+    border-radius: 9px;
+    font-weight: 700;
+    transition: all 0.4s;
+}
+
+#viewcustomer:hover{
+     background-color: black;
+     color: white;
+}
+
+#allcust{
+    
+    background-color: black;
+    color: white;
+    font-size: 24px;
+    padding: 10px 20px;
+    border-radius: 20px;
+
+}
+
+#footer{
+    background-color: rgb(33,37,41);
+    color: white;
+    text-align: center;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    padding: 9px 5px;
+    font-size: 13px;
+}
+
+.ban-heading{
+    display: inline-block;
+    margin-top: 10rem;
+    color: whitesmoke;
+    background-color: black;
+    padding: 30px 30px;
+    width: 40%;
+    height: 310px;
+
+}
+
+
+
+.receive{
+    background-color: green;
+    padding: 1px 5px;
+    font-weight: 700;
+    border-radius: 8px;
+    color: white;
+}
+.send{
+    background-color: red;
+    padding: 1px 5px;
+    font-weight: 700;
+    border-radius: 8px;
+      color: white;  
+}

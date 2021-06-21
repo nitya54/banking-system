@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Management System | Home</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+</head>
+
+<body>
+  <nav class="navbar bg-dark">
+    <div class="container-fluid">
+      <a id="logo" href="/" class="navbar-brand"><i class="fas fa-university"></i> Your's Bank</a>
+  </nav>
+  <div class="container">
+    <div class="banner-heading">
+      <h1 style="font-weight: 700;">Welcome to Your's Bank</h1>
+      <p style="font-size: 18px; font-weight: 400; margin: 21px 0px;">Make your Money Transfer smooth and faster</p>
+      <br>
+      <br>
+      <button id="viewcustomer" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">View
+        Customers</button>
+      &nbsp;
+      <button id="viewcustomer" type="button" data-bs-toggle="modal" data-bs-target="#transaction">View
+        Transactions</button>
+    </div>
+    <img src="/images/payment.png" alt="" style="float: right;">
+  </div>
+
+  <footer>
+    <div id="footer">Spark Foundation Internship Project &copy; 2021, Nitya Dutta &nbsp; <a href="https://www.linkedin.com/in/nitya-dutta-2036011b7"><i class="fab fa-linkedin" ></i></a></div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="viewcustomer" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="allcust">All Customers</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+          <br>
+          <ul style="list-style-type: none;">
+            <% for(var i=0;i<customer.length;i++) {%>
+              <li style="margin: 5px 5px;"><a href="/account/<%= customer[i].accountno %>">
+                  <button type="button" class="btn btn-primary">
+                    <%= customer[i].firstname %>
+                      <%= customer[i].lastname %>
+                        <br>
+                        Account no: <%= customer[i].accountno %>
+                  </button>
+                </a>
+              </li>
+              <% } %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="transaction" tabindex="-1" aria-labelledby="transaction" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content" class="extra">
+        <div class="modal-header">
+          <h5 class="modal-title" id="allcust">All Transactions</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+          <% if(transaction.length==0) {%>
+            <p>Sorry No Transaction Found</p>
+            <% } else { %>
+              <% for(var i=0;i<transaction.length;i++) { %>
+                <p><span style="font-weight:800;"><%= transaction[i].receiver.firstname %> <%= transaction[i].receiver.lastname %></span> received &nbsp;<span class="receive">
+                    <%= transaction[i].amount %>
+                  </span>&nbsp; from <span style="font-weight: 800;"><%= transaction[i].sender.firstname %>
+                    <%= transaction[i].sender.lastname %></span> on <%= transaction[i].date %> at <%= transaction[i].time %>
+                </p>
+
+                <% } %>
+                  <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
